@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("First Sketch - Author (Keep-It-Happen)")]
-[assembly: AssemblyDescription("First Sketch for the Author of the Keep-It-Happen Project")]
+[assembly: AssemblyTitle("First Sketch - Author (Make-It-Happen)")]
+[assembly: AssemblyDescription("First Sketch for the Author of the Make-It-Happen Project")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("C0")]
-[assembly: AssemblyProduct("Keep It Happen")]
+[assembly: AssemblyProduct("Make It Happen")]
 [assembly: AssemblyCopyright("Copyright © C0 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

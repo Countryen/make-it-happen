@@ -19,12 +19,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <TypeScriptCompile Include="ElementsBucket.ts" />
+    <TypeScriptCompile Include="ElementInfo.ts" />
     <Content Include="index.html" />
     <Content Include="w3.css" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="App.ts" />
+    <TypeScriptCompile Include="Book.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">

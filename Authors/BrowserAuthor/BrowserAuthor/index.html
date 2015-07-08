@@ -16,7 +16,9 @@
     <title>WA1 - Menu</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
     <link rel="stylesheet" href="w3.css" type="text/css" />
-    <script src="app.js"></script>
+    <script src="Book.js"></script>
+    <script src="ElementsBucket.js"></script>
+    <script src="ElementInfo.js"></script>
 </head>
 <body style="font-size:120%">
     <div style="border:5px solid black; background-color:chocolate; margin:10% auto 0 auto; width: 500px; padding:1em">
@@ -27,14 +29,16 @@
             Explanation... and stuff...
         </div>
         <div>
-            <button onclick="location.href = 'pages.html';"  style="height:2em; display:block; width:80%; margin: 0.5em auto;">Pages</button>
-            <button onclick="location.href = 'connections.html';"  style="height:2em; display:block; width:80%; margin: 0.5em auto;">Connections</button>
-            <button onclick="location.href = 'save.html';"  style="height:2em; display:block; width:80%; margin: 0.5em auto;">Save</button>
-            <button onclick="location.href = 'load.html';"  style="height:2em; display:block; width:80%; margin: 0.5em auto;">Load</button>
-            <button onclick="location.href = 'exit.html';" style="height:2em; display:block; width:80%; margin: 0.5em auto;">EXIT</button>
+            <button id="menu-btn-pages" onclick="location.href = 'pages.html';" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Pages</button>
+            <button id="menu-btn-connections" onclick="location.href = 'connections.html';" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Connections</button>
+            <button id="menu-btn-save" onclick="location.href = 'save.html';" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Save</button>
+            <button id="menu-btn-load" onclick="location.href = 'load.html';" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Load</button>
+            <button id="menu-btn-exit" style="height:2em; display:block; width:80%; margin: 0.5em auto;">EXIT</button>
         </div>
         <!-- Just for testing purpose there! -->
         <div style="margin-top:1em;" id="content"></div>
     </div>
+    <!-- Starts the app! -->
+    <script src="App.js"></script>
 </body>
 </html>

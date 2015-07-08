@@ -1,28 +1,24 @@
-﻿class Greeter {
-    element: HTMLElement;
-    span: HTMLElement;
-    timerToken: number;
-
-    constructor(element: HTMLElement) {
-        this.element = element;
-        this.element.innerHTML += "The time is: ";
-        this.span = document.createElement('span');
-        this.element.appendChild(this.span);
-        this.span.innerText = new Date().toUTCString();
+﻿// General class for the whole app 
+class App {
+    private elementsBucket: ElementsBucket = new ElementsBucket(); 
+    // closes the app / window
+    static exit() {
+        window.close();
     }
 
-    start() {
-        this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
-    }
-
-    stop() {
-        clearTimeout(this.timerToken);
+    // Returns the ElementsBucket of the app (containing info about all Elements)
+    get Elements() {
+        return this.elementsBucket;
     }
 
 }
 
+// On start -> Loads the app and registers all events etc...
 window.onload = () => {
-    var el = document.getElementById('content');
-    var greeter = new Greeter(el);
-    greeter.start();
+    var app = new App();
+    var exitButton = document.getElementById(app.Elements.MenuExitButton.Id);
+    exitButton.onclick = () => {
+        App.exit();
+    }
+    
 };

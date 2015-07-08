@@ -21,6 +21,8 @@
     <Content Include="app.css" />
     <TypeScriptCompile Include="ElementsBucket.ts" />
     <TypeScriptCompile Include="ElementInfo.ts" />
+    <Content Include="pages.html" />
+    <Content Include="connections.html" />
     <Content Include="index.html" />
     <Content Include="w3.css" />
     <Content Include="web.config" />

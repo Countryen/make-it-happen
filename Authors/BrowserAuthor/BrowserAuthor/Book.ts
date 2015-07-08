@@ -1,4 +1,15 @@
-﻿/**
+﻿/*
+    Project: Make It Happen (Toolset for Generation of choice - and - consequence games)
+    Subproject: Author(Tool / App) - Writer(Person) uses the Author to create the game (*.book)
+    Authors: Countryen
+    This Project is Open Source, see the LICENCE - File for more information.
+    https://github.com/countryen/make-it-happen
+
+    File-Info:
+    Book.js - > The Book of the Game. Contains all Pages and information. Also handels saving/loading books into memory.
+    Countryen, 8th July 2015 @ C0 | VS -Villingen, Germany.
+*/
+/**
   * Represents a Book (from a *.book file or smth. else) containing the game and its Pages.
   * Countryen, 8th of July, 2015 @ C0 | VS-Villingen, Germany.
   */

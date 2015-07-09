@@ -1,7 +1,15 @@
-﻿body {
+body {
     font-family: 'Segoe UI', sans-serif;
 }
 
 span {
     font-style: italic;
+}
+
+#pageText {
+  display: block;
+}
+
+div.editPages {
+  width: 80%;
 }

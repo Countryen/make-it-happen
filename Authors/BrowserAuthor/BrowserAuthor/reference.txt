@@ -1,0 +1,38 @@
+﻿            // Start of the Animation.
+            var canvas = document.getElementById("overview");
+            var stage = new createjs.Stage("overview");
+
+            stage.enableMouseOver(10); // 10 updates per second
+
+            var circle = new createjs.Shape();
+            circle.graphics.beginFill("red").drawCircle(0, 0, 40);
+            circle.x = circle.y = 50;
+
+            circle.addEventListener("added", added);            // Event {type: "added", target: Shape, currentTarget: Shape, eventPhase: 2, bubbles: false…}
+            circle.addEventListener("click ", click);           // MouseEvent {type: "click", target: Shape, currentTarget: Shape, eventPhase: 2, bubbles: true…}
+            circle.addEventListener("dblclick", dblclick);      // MouseEvent {type: "dblclick", target: Shape, currentTarget: Shape, eventPhase: 2, bubbles: true…}
+            circle.addEventListener("mousedown ", mousedown);   // MouseEvent {type: "mousedown", target: Shape, currentTarget: Shape, eventPhase: 2, bubbles: true…}
+            circle.addEventListener("mouseout ", mouseout);     // ENABLEMOUSEOVER MouseEvent {type: "mouseout", target: Shape, currentTarget: Shape, eventPhase: 2, bubbles: true…}
+            circle.addEventListener("mouseover ", mouseover);   // ENABLEMOUSEOVER MouseEvent {type: "mouseover", target: Shape, currentTarget: Shape, eventPhase: 2, bubbles: true…}
+            circle.addEventListener("pressmove ", pressmove);   //  MouseEvent {type: "pressmove", target: Shape, currentTarget: Shape, eventPhase: 2, bubbles: true…}
+            circle.addEventListener("pressup ", pressup);       // MouseEvent {type: "pressup", target: Shape, currentTarget: Shape, eventPhase: 2, bubbles: true…}
+            // Roll = 1x on in/out
+            circle.addEventListener("rollout", rollout);        // MouseEvent {type: "rollout", target: Shape, currentTarget: Shape, eventPhase: 2, bubbles: false…}
+            circle.addEventListener("rollover", rollover);      // MouseEvent {type: "rollover", target: Shape, currentTarget: Shape, eventPhase: 2, bubbles: false…}
+
+            stage.addChild(circle);
+
+            stage.update();
+
+            function added(x) { console.log(x); }
+            function click(x) { console.log(x); }
+            function dblclick(x) { console.log(x); }
+            function mousedown(x) { console.log(x); }
+            function mouseout(x) { console.log(x); }
+            function mouseover(x) { console.log(x); }
+            function pressmove(x) { console.log(x); }
+            function pressup(x) { console.log(x); }
+            function removed(x) { console.log(x); }
+            function rollout(x) { console.log(x); }
+            function rollover(x) { console.log(x); }
+            function tick(x) { console.log(x); }

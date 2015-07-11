@@ -41,10 +41,10 @@
             var fileReader = new FileReader();
 
             // Asynchronous reading. The file must be utf-8!
-            fileReader.onload = fileReader_OnLoad; // see below.
+            fileReader.onload = fileReader_onload; // see below.
             fileReader.readAsText(selectedFile);
 
-            function fileReader_OnLoad(fileReaderEvent) {
+            function fileReader_onload(fileReaderEvent) {
                 var content = fileReaderEvent.target.result;
                 console.log(content);
             }
@@ -61,7 +61,7 @@
             alert("Here the book will be sent to the browser as downloadable file")
             // http://cwestblog.com/2014/10/21/javascript-creating-a-downloadable-file-in-the-browser/
             window.location = 'data:application/text;chraset=utf-8,' + encodeURIComponent("hello world");
-            // ! window.location = 'data:text/plain;chraset=utf-8,' + encodeURIComponent("hello world"); ! Prints to screen (copy!)
+            // ! window.location = 'data:text/plain;chraset=utf-8,' + encodeURIComponent("hello world"); Prints to screen (copy!)
         };
 
     });

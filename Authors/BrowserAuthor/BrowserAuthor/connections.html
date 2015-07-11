@@ -16,12 +16,13 @@
     <meta charset="utf-8" />
     <title>WA1 - Connections</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="https://code.createjs.com/createjs-2015.05.21.combined.js"></script>
 </head>
 <body>
     <div id="page-connections" class="w3-container w3-border">
-        <div class=" overview-container w3-container w3-border w3-half">
+        <div style="overflow:scroll" class=" overview-container w3-container w3-border w3-half">
             Here is the overview
-            <canvas id="overview"></canvas>
+            <canvas class="w3-border" width="715" height="590" id="overview"></canvas>
         </div>
         <div class="w3-quarter w3-container w3-border">
             <div class="w3-container w3-border">
@@ -29,7 +30,7 @@
             </div>
             <div class=" pages-container w3-container w3-border">
                 Here are the pages (dynamically loaded)
-                <button></button>
+                <button id="TEST">TEST</button>
                 <button></button>
                 <button></button>
                 <button></button>
@@ -39,5 +40,8 @@
             </div>
         </div>
     </div>
+    <!-- Starts the app and runs the controller for this html file -->
+    <script src="app.js"></script>
+    <script src="connections.js"></script>
 </body>
 </html>

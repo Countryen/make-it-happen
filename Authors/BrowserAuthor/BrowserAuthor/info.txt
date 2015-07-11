@@ -16,3 +16,7 @@
 4. every page (menu, pages, connections ...) has its own controller-js -> registering events, loading data and classes as needed.
 5. every page (menu, pages, connections ...) loads the app.js first.
 6. The global class/namespace "Author" is our encapsulation for Book, App, etc. So everything will be "Author.*" see app.js
+7. We name files lower-case. (e.g: this-file.html)
+8. We name js-classes PascalCase. (e.g: ThisClass)
+9. We name html/css ids and classes lower-case (e.g: .this-class-name | #this-id-name)
+10. We name members of js-classes camelCase. (e.g: Class.getElement(); | Class.elements;)

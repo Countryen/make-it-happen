@@ -20,6 +20,7 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="app.js" />
+    <Content Include="info.txt" />
     <Content Include="pages.html" />
     <Content Include="connections.html" />
     <Content Include="index.html" />

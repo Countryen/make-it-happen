@@ -1,0 +1,17 @@
+﻿/*
+    Project: Make It Happen (Toolset for Generation of choice-and-consequence games)
+    Subproject: Author (Tool/App) - Writer (Person) uses the Author to create the game (*.book)
+    Authors: Countryen
+    This Project is Open Source, see the LICENCE-File for more information.
+    https://github.com/countryen/make-it-happen
+
+    File-Info:
+    info.txt -> Main information for the dev of the app
+    Countryen, 11th July 2015 @ C0 | VS-Villingen.
+*/
+
+1. We use w3css as our main style.
+2. index.html -> The menu of the app.
+3. app.js -> The general global class for the app -> contains usefull stuff
+4. every page (menu, pages, connections ...) has its own controller-js -> registering events, loading data and classes as needed.
+5. every page (menu, pages, connections ...) loads the app.js first.

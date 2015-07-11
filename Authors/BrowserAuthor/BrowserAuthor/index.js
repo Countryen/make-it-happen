@@ -13,7 +13,7 @@
     // Global app-class.
     var app = new Author.App();
 
-    // menu-btn-exit -> OnClick -> Exit the app
+    // menu-btn-exit -> onclick -> Exit the app
     window.addEventListener("load", function () {
         var exitButton = document.getElementById(app.elements.menuExitButton.id);
         exitButton.onclick = function () {
@@ -21,7 +21,7 @@
         }
     });
 
-    // menu-btn-load -> OnClick -> Load the selected book
+    // menu-btn-load -> onclick -> Load the selected book
     // Help by: http://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html#fbid=cv2OE3ULtAv
     // The file MUST be utf-8!
     window.addEventListener("load", function () {
@@ -33,10 +33,10 @@
             var selectedFiles = loadInput.files;
             if (selectedFiles.length !== 1)
                 throw Error("No file selected, loading can not proceed");
-            
+
             // Create a new book and load from file.
             // The file must be utf-8!
-            
+
             var selectedFile = selectedFiles[0];
             var fileReader = new FileReader();
 
@@ -48,9 +48,22 @@
                 var content = fileReaderEvent.target.result;
                 console.log(content);
             }
-            
+
             // TODO: -> new Book()~.loadFromFile(file);
-        }
+        };
+    });
+
+    // menu-a-save -> onclick -> save the current book -> means sending it to the browser (download)
+    window.addEventListener("load", function () {
+        var saveButton = document.getElementById(app.elements.menuSaveButton.id);
+        saveButton.onclick = function () {
+            // TODO: -> Book~.sendToBrowserAsDownload();
+            alert("Here the book will be sent to the browser as downloadable file")
+            // http://cwestblog.com/2014/10/21/javascript-creating-a-downloadable-file-in-the-browser/
+            window.location = 'data:application/text;chraset=utf-8,' + encodeURIComponent("hello world");
+            // ! window.location = 'data:text/plain;chraset=utf-8,' + encodeURIComponent("hello world"); ! Prints to screen (copy!)
+        };
+
     });
 
 })();

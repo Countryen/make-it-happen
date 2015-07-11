@@ -16,12 +16,15 @@
     // TEST -> onclick -> Test the canvas with createjs http://createjs.com/
     window.addEventListener("load", function () {
         var testButton = document.getElementById("TEST");
+        var id = -1;
+        stage = new createjs.Stage("overview");
         testButton.onclick = function () {
             // Start of the Animation.
             var canvas = document.getElementById("overview");
-            var stage = new createjs.Stage("overview");
+            //stage = (id == -1) ? new createjs.Stage("overview") : new createjs.Stage(id + "");
 
             var rect = new createjs.Shape();
+            console.log(rect);
             rect.graphics.beginFill("red").drawRect(0, 0, 100, 50);
             rect.x = rect.y = 50;
             rect.addEventListener("pressup", rect_pressup);
@@ -39,6 +42,7 @@
                 stage.update();
                 
             }
+            id = stage.id;
         };
     });
 

@@ -31,7 +31,10 @@
             <button id="menu-btn-pages" onclick="location.href = 'pages.html';" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Pages</button>
             <button id="menu-btn-connections" onclick="location.href = 'connections.html';" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Connections</button>
             <button id="menu-btn-save" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Save</button>
-            <button id="menu-btn-load" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Load</button>
+            <div style="height:4.5em; line-height:2; display:block; width:80%; margin: 0.5em auto;">
+                <input id="menu-input-load" type="file" />
+                <label style="font-weight:bold;" for="menu-input-load"><button id="menu-btn-load">Load</button> Book from file (*.book): </label>
+            </div>
             <button id="menu-btn-exit" style="height:2em; display:block; width:80%; margin: 0.5em auto;">EXIT</button>
         </div>
         <!-- Just for testing purpose there! -->
@@ -39,5 +42,6 @@
     </div>
     <!-- Starts the app! -->
     <script src="app.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

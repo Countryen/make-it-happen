@@ -1,3 +1,18 @@
+﻿/*
+    Project: Make It Happen (Toolset for Generation of choice - and - consequence games)
+    Subproject: Author(Tool / App) - Writer(Person) uses the Author to create the game (*.book)
+    Authors: Countryen
+    This Project is Open Source, see the LICENCE - File for more information.
+    https://github.com/countryen/make-it-happen
+
+    File-Info:
+    app.css - > Main stylesheet for the whole app.
+    "Countryen, 11th July 2015 @ C0 | VS -Villingen, Germany."
+*/
+
+/* The W3CSS -> Our main style. With normalizer subset.*/
+@import url("w3.css");
+
 body {
     font-family: 'Segoe UI', sans-serif;
 }

@@ -28,3 +28,24 @@ span {
 div.editPages {
   width: 80%;
 }
+
+/* connections.html */
+#page-connections { 
+    margin: 1%; 
+    min-height:500px;
+    padding:0.5%;
+}
+#page-connections .w3-container {
+    padding:0.5%;
+}
+
+#page-connections .pages-container button {
+    display:block;
+    width:100%;
+}
+
+#page-connections .overview-container {
+    width:74.99999%; /* To have a 3/4 1/4 sizing ! with w3-half|w3-quarter ! */
+}
+
+

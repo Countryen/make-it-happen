@@ -19,8 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
-    <TypeScriptCompile Include="ElementsBucket.ts" />
-    <TypeScriptCompile Include="ElementInfo.ts" />
+    <Content Include="app.js" />
     <Content Include="pages.html" />
     <Content Include="connections.html" />
     <Content Include="index.html" />
@@ -28,7 +27,6 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="App.ts" />
     <TypeScriptCompile Include="Book.ts" />
   </ItemGroup>
   <ItemGroup>

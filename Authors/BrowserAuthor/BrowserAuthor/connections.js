@@ -17,7 +17,7 @@
     window.addEventListener("load", function () {
         var testButton = document.getElementById("TEST");
         var id = -1;
-        stage = new createjs.Stage("overview");
+        stage = new createjs.Stage("connections-overview-canvas");
         testButton.onclick = function () {
             // Start of the Animation.
             var canvas = document.getElementById("overview");
@@ -40,10 +40,25 @@
                 mousePressupEvent.currentTarget.x = mousePressupEvent.stageX;
                 mousePressupEvent.currentTarget.y = mousePressupEvent.stageY;
                 stage.update();
-                
+
             }
             id = stage.id;
         };
+    });
+
+    // Adds fullscreen support. Resizes the content to the window (+ onresize)
+    window.addEventListener("load", function () {
+        var overviewContainer = document.getElementById("connections-overview-container");
+        var pagesContainer = document.getElementById("connections-pages-container");
+        // Resizing the elements to window-size (minus margins/paddings etc.)
+        overviewContainer.style.height = (window.innerHeight - 35 * 2) + "px";
+        pagesContainer.style.height = (window.innerHeight - 55 * 2) + "px";
+        // Now the same onresize of the window (when the user ZOOMS out/in)
+        window.addEventListener("resize", function () {
+            overviewContainer.style.height = (window.innerHeight - 35 * 2) + "px";
+            pagesContainer.style.height = (window.innerHeight - 55 * 2) + "px";
+           
+        });
     });
 
 

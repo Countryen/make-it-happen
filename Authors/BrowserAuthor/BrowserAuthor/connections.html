@@ -7,28 +7,29 @@
     https://github.com/countryen/make-it-happen
 
     File-Info:
-    connections.html -> Screen for edititing the linking between Pages (choice -> consequence).
+    overview.html -> Screen for edititing the linking between Pages (choice -> consequence).
     Countryen, 8th July 2015 @ C0 | VS-Villingen.
+    + "12th July 2015"
 -->
 
 <html lang="de">
 <head>
     <meta charset="utf-8" />
-    <title>WA1 - Connections</title>
+    <title>WA1 - Overview</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
     <script src="https://code.createjs.com/createjs-2015.05.21.combined.js"></script>
 </head>
 <body>
-    <div id="connections" class="w3-container w3-border">
-        <div id="connections-overview-container" class="w3-container w3-border w3-half">
+    <div id="overview" class="w3-container w3-border">
+        <div id="overview-canvas-container" class="w3-container w3-border w3-half">
             Here is the overview
-            <canvas class="w3-border" width="4000" height="5000" id="connections-overview-canvas"></canvas>
+            <canvas id="overview-canvas" class="w3-border" width="9000px" height="10000px"></canvas>
         </div>
-        <div id="connections-toolbar-container" class="w3-quarter w3-container w3-border">
-            <div id="connections-menubar-container" class="w3-container w3-border">
+        <div id="overview-toolbar-container" class="w3-quarter w3-container w3-border">
+            <div id="overview-menubar-container" class="w3-container w3-border">
                 Button bar coming soon...
             </div>
-            <div id="connections-pages-container" class="w3-container w3-border">
+            <div id="overview-pages-container" class="w3-container w3-border">
                 Here are the pages (dynamically loaded)
                 <button id="TEST">TEST</button>
                 <button></button>
@@ -468,6 +469,6 @@
     </div>
     <!-- Starts the app and runs the controller for this html file -->
     <script src="app.js"></script>
-    <script src="connections.js"></script>
+    <script src="overview.js"></script>
 </body>
 </html>

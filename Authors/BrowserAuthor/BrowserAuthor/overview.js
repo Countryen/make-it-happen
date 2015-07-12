@@ -6,8 +6,9 @@
     https://github.com/countryen/make-it-happen
 
     File-Info:
-    connections.js -> Controller for connections.html (the overview) -> registering events etc.
+    overview.js -> Controller for overview.html -> registering events etc.
     Countryen, 11th July 2015 @ C0 | VS-Villingen.
+    + "12th July 2015"
 */
 (function () {
     // Global app-class.
@@ -17,7 +18,7 @@
     window.addEventListener("load", function () {
         var testButton = document.getElementById("TEST");
         var id = -1;
-        stage = new createjs.Stage("connections-overview-canvas");
+        stage = new createjs.Stage("overview-canvas");
         testButton.onclick = function () {
             // Start of the Animation.
             var canvas = document.getElementById("overview");
@@ -48,8 +49,8 @@
 
     // Adds fullscreen support. Resizes the content to the window (+ onresize)
     window.addEventListener("load", function () {
-        var overviewContainer = document.getElementById("connections-overview-container");
-        var pagesContainer = document.getElementById("connections-pages-container");
+        var overviewContainer = document.getElementById("overview-canvas-container");
+        var pagesContainer = document.getElementById("overview-pages-container");
         // Resizing the elements to window-size (minus margins/paddings etc.)
         overviewContainer.style.height = (window.innerHeight - 35 * 2) + "px";
         pagesContainer.style.height = (window.innerHeight - 55 * 2) + "px";

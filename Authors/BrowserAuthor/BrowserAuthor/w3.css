@@ -6,7 +6,7 @@
     https://github.com/countryen/make-it-happen
 
     File-Info:
-    w3.css -> The base css file from W3Schools (+ Normalized)
+    w3.css -> The base css file from W3Schools (+ Normalized) also contains at the end the main theme for the app.
     Downloaded on 7th July 2015 from http://www.w3schools.com/w3css
     Countryen, 7th July 2015 @ C0 | VS-Villingen.
 */
@@ -547,3 +547,9 @@ position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duratio
 .w3-text-amber {color:#ffc107 !important;}
 .w3-text-brown {color:#795548 !important;}
 .w3-text-light-blue {color:#03a9f4 !important;}
+
+/* Start of the main theme: http://www.w3schools.com/w3css/w3-theme-dark-grey.css */
+.w3-theme-light {color:#000 !important;background-color:#e0e0e0 !important;}
+.w3-theme {color:#fff !important;background-color:#616161 !important;}
+.w3-theme-dark {color:#fff !important;background-color:#424242 !important;}
+.w3-text-theme {color:#616161 !important;}

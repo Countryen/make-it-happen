@@ -18,18 +18,19 @@
     <title>WA1 - Overview</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
     <script src="https://code.createjs.com/createjs-2015.05.21.combined.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 </head>
-<body>
-    <div id="overview" class="w3-container w3-border">
-        <div id="overview-canvas-container" class="w3-container w3-border w3-half">
+<body class="w3-theme-dark">
+    <div id="overview" class="full-editor w3-container w3-border w3-theme-dark">
+        <div id="overview-canvas-container" class="full-editor-left w3-container w3-border w3-half w3-theme">
             Here is the overview
-            <canvas id="overview-canvas" class="w3-border" width="9000px" height="10000px"></canvas>
+            <canvas id="overview-canvas" class="w3-border w3-theme-light" width="9000" height="10000"></canvas>
         </div>
-        <div id="overview-toolbar-container" class="w3-quarter w3-container w3-border">
-            <div id="overview-menubar-container" class="w3-container w3-border">
+        <div class="full-editor-right w3-quarter w3-container w3-border w3-theme">
+            <div class="w3-container w3-border w3-theme-light">
                 Button bar coming soon...
             </div>
-            <div id="overview-pages-container" class="w3-container w3-border">
+            <div id="overview-pages-container" class="full-editor-page-box w3-container w3-border">
                 Here are the pages (dynamically loaded)
                 <button id="TEST">TEST</button>
                 <button></button>

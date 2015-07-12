@@ -15,28 +15,28 @@
     <meta charset="utf-8" />
     <title>WA1 - Menu</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
-    <script src="Book.js"></script>
-    <script src="ElementsBucket.js"></script>
-    <script src="ElementInfo.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 </head>
-<body style="font-size:120%">
-    <div style="border:5px solid black; background-color:chocolate; margin:10% auto 0 auto; width: 500px; padding:1em">
-        <div style="text-align:center">
+
+
+<body class="w3-theme-dark">
+    <div id="index" class="w3-container w3-theme-dark">
+        <div class="w3-container w3-center">
             <h1>Author - Make-It-Happen <br /> v 1.0.0</h1>
         </div>
-        <div style="margin-bottom:1em;">
-            Explanation... and stuff...
+        <div class="w3-container w3-theme">
+            <p class="w3-text">Explanation... and stuff...</p>
         </div>
-        <div>
-            <button id="menu-btn-pages" onclick="location.href = 'pages.html';" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Pages</button>
-            <button id="menu-btn-overview" onclick="location.href = 'overview.html';" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Overview</button>
-            <button id="menu-btn-demo" onclick="location.href = 'demo.html';" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Demo</button>
-            <button id="menu-btn-save" style="height:2em; display:block; width:80%; margin: 0.5em auto;">Save</button>
-            <div style="height:4.5em; line-height:2; display:block; width:80%; margin: 0.5em auto;">
-                <input id="menu-input-load" type="file" />
-                <label style="font-weight:bold;" for="menu-input-load"><button id="menu-btn-load">Load</button> Book from file (*.book): </label>
+        <div class="w3-container w3-theme-light w3-center">
+            <button class="w3-badge w3-theme" onclick="location.href = 'pages.html';">Pages</button>
+            <button class="w3-badge w3-theme" onclick="location.href = 'overview.html';">Overview</button>
+            <button class="w3-badge w3-theme" onclick="location.href = 'demo.html';">Demo</button>
+            <button class="w3-badge w3-theme" id="menu-btn-save">Save</button>
+            <div class="w3-container w3-theme-light">
+                To load, plase select a file and press the button beneath <input id="menu-input-load" type="file"/>
+                <label for="menu-input-load"><button id="menu-btn-load" class="w3-badge w3-theme">Load</button> Book from file (*.book): </label>
             </div>
-            <button id="menu-btn-exit" style="height:2em; display:block; width:80%; margin: 0.5em auto;">EXIT</button>
+            <button id="menu-btn-exit">EXIT</button>
         </div>
         <!-- Just for testing purpose there! -->
         <div style="margin-top:1em;" id="content"></div>

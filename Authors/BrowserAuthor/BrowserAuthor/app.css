@@ -28,45 +28,57 @@ span {
 div.editPages {
   width: 80%;
 }
+
+#index button {
+    display:block;
+    width:75%;
+    margin:0.5em auto;
+    height:3em;
+
+}
+
 /********************************/
 /**
- * Style for overview.html 
+ * Style for fullscreen editors
+    -> overview.html
+    -> demo.html
  */
 /********************************/
-#overview {
+.full-editor {
     margin: 10px;
     padding: 5px;
 }
-    #overview .w3-container {
+    .full-editor .w3-container {
         padding: 5px;
     }
 
 
-#overview-canvas-container {
-    width: 74.99999%; /* To have a 3/4 1/4 sizing ! with w3-half|w3-quarter ! */
+.full-editor-left {
+    width: 74%; /* To have a 3/4 1/4 sizing ! with w3-half|w3-quarter ! */
     overflow:scroll;
+    margin-right:5px;
 }
 
 #overview-canvas {
     background-color: #ffcfcf;
     margin:5px;
+    margin-right:10px;
 }
 
-#overview-toolbar-container {
+.full-editor-right {
 
 }
 
-#overview-menubar-container {
-}
-
-#overview-pages-container {
+.full-editor-page-box {
     overflow: scroll;
-    height: 500px;
 }
-    #overview-pages-container button {
+    .full-editor-page-box button {
         display: block;
         width: 100%;
-        height: 2em;
+        height: 2.5em;
+        background-color:#888888;
+        border-color:#222222;
+        margin-bottom:0.25em;
     }
 
 

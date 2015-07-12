@@ -20,11 +20,13 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="app.js" />
+    <Content Include="demo.html" />
+    <Content Include="demo.js" />
     <Content Include="overview.js" />
     <Content Include="index.js" />
     <Content Include="info.txt" />
     <Content Include="pages.html" />
-    <Content Include="connections.html" />
+    <Content Include="overview.html" />
     <Content Include="index.html" />
     <Content Include="reference.txt" />
     <Content Include="w3.css" />

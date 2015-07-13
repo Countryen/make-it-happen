@@ -18,12 +18,11 @@
     window.addEventListener("load", function () {
         var testButton = document.getElementById("TEST");
         var id = -1;
-        stage = new createjs.Stage("overview-canvas");
         testButton.onclick = function () {
             // Start of the Animation.
             var canvas = document.getElementById("overview");
             //stage = (id == -1) ? new createjs.Stage("overview") : new createjs.Stage(id + "");
-
+            var stage = new createjs.Stage("overview-canvas");
             var rect = new createjs.Shape();
             console.log(rect);
             rect.graphics.beginFill("red").drawRect(0, 0, 15, 15);
@@ -44,6 +43,9 @@
 
             }
             id = stage.id;
+            var p1 = new DrawnPage(null);
+            p1.addToStage(stage);
+            stage.update();
         };
     });
 
@@ -61,6 +63,39 @@
            
         });
     });
+
+    /*************************************************************************************/
+    /* Region: Classes and Functions for the use of the canvas -> rendering the overview */
+    /*************************************************************************************/
+
+    /**
+     * Class -> A page on the canvas -> a little shape with the ID in it
+     *
+    */
+    function DrawnPage(page) {
+        this.page = page;
+        this.shape = null;
+
+        // Constructor?
+        {
+            var box = new createjs.Shape();
+            box.graphics.beginFill("red").drawCircle(0, 0, 10);
+            this.shape = box;
+
+            // Wow... this is so difficult with JS... TS?
+        }
+        
+
+        this.addToStage = function (stage) {
+            if (!this.shape)
+                throw new Error("Could not add DrawnPage with page: " + page + " to the stage: " + stage + ". No shape defined!");
+            else
+                stage.addChild(this.shape);
+
+
+        };
+
+    }
 
 
 

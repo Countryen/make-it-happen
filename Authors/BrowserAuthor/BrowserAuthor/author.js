@@ -44,7 +44,7 @@
                     return false;
             }
         }
-    }
+    };
 
     /**
      * Author.Book -> Represents a Book (from a *.book file or smth. else) containing the game and its Pages.
@@ -68,7 +68,7 @@
         this.addPage = function (page) {
             // Add page to this.pages
         };
-        
+
         this.removePage = function (page) {
             // Remove page from this.pages
         };
@@ -76,6 +76,6 @@
         this.findPage = function (page) {
             // Find page in this.pages
         };
-    }
+    };
 
 })();

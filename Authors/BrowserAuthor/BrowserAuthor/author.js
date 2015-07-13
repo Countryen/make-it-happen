@@ -6,14 +6,15 @@
     https://github.com/countryen/make-it-happen
 
     File-Info:
-    app.js - > The Application itself. Main Class for several usefull meta-methods.
-              Should be created (instance) on appstart.
+    author.js - > The Application itself. All 'classes' for several usefull meta-methods.
+                  For simplicity we create ALL classes inside this file!
+                  Should be created (instance) on appstart.
     Countryen, 8th July 2015 @ C0 | VS -Villingen, Germany.
 */
-/**
- * Author is the namespace of the app and should countain all classes and functions!
-*/
 (function () {
+    /**
+     * Author is the namespace of the app and should countain all classes and functions!
+    */
     window.Author = window.Author || {};
 
     /**

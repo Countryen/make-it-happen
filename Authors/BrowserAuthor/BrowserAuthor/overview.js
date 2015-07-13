@@ -26,7 +26,7 @@
 
             var rect = new createjs.Shape();
             console.log(rect);
-            rect.graphics.beginFill("red").drawRect(0, 0, 100, 50);
+            rect.graphics.beginFill("red").drawRect(0, 0, 15, 15);
             rect.x = rect.y = 50;
             rect.addEventListener("pressup", rect_pressup);
 

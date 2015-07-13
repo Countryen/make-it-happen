@@ -12,7 +12,7 @@
 
 1. We use w3css as our main style.
 2. index.html -> The menu of the app.
-3. app.js -> The general global class for the app (App) -> contains usefull stuff
+3. author.js -> The general global class for the app (App) -> contains usefull stuff
 4. every page (menu, pages, connections ...) has its own controller-js -> registering events, loading data and classes as needed.
 5. every page (menu, pages, connections ...) loads the app.js first.
 6. The global class/namespace "Author" is our encapsulation for Book, App, etc. So everything will be "Author.*" see app.js

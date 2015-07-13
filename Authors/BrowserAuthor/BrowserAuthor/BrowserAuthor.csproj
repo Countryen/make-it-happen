@@ -19,7 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
-    <Content Include="app.js" />
+    <Content Include="author.js" />
     <Content Include="demo.html" />
     <Content Include="demo.js" />
     <Content Include="overview.js" />

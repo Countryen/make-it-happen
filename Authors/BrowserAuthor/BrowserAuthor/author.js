@@ -46,4 +46,36 @@
         }
     }
 
+    /**
+     * Author.Book -> Represents a Book (from a *.book file or smth. else) containing the game and its Pages.
+     * Also responsible for loading and saving the book and the actuell "model" of the app.
+    */
+    window.Author.Book = function Book() {
+        this.pages = []; // Array<Page> !
+        // TODO: More Information about the book
+        this.loadFromFile = function (file) {
+            // Load a *.book file and serialize the information (pages etc.) into the object
+            // let the user choose the file to load from
+            // alternative: serve a form where the user can copy the text of the *.book file into
+        };
+
+        this.saveToFile = function (file) {
+            // Save the book (as format...) to a file...
+            // let the user choose the file to save to
+            // alternative: print out the book (to screen) OR download.
+        };
+
+        this.addPage = function (page) {
+            // Add page to this.pages
+        };
+        
+        this.removePage = function (page) {
+            // Remove page from this.pages
+        };
+
+        this.findPage = function (page) {
+            // Find page in this.pages
+        };
+    }
+
 })();

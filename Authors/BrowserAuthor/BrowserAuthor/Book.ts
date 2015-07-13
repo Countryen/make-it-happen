@@ -6,7 +6,7 @@
     https://github.com/countryen/make-it-happen
 
     File-Info:
-    Book.js - > The Book of the Game. Contains all Pages and information. Also handels saving/loading books into memory.
+    Book.ts - > The Book of the Game. Contains all Pages and information. Also handels saving/loading books into memory.
     Countryen, 8th July 2015 @ C0 | VS -Villingen, Germany.
 */
 /**

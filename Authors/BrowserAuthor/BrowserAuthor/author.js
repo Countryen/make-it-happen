@@ -1,4 +1,4 @@
-/*
+﻿/*
     Project: Make It Happen (Toolset for Generation of choice - and - consequence games)
     Subproject: Author(Tool / App) - Writer(Person) uses the Author to create the game (*.book)
     Authors: Countryen
@@ -78,7 +78,7 @@
         };
     };
     
-    window.Author.Page = functionPage(id, text, option1, option2, target1, target2) {
+    window.Author.Page = function Page(id, text, option1, option2, target1, target2) {
       this.id = id;
       this.text = text;
       this.option1Text = option1;

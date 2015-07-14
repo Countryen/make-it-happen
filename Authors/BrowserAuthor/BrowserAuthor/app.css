@@ -51,6 +51,8 @@ button {
 div.editPages {
   width: 80%;
   height: 100%;
+  display: inline-block;
+  float:left;
 }
 
 .row1 button {
@@ -89,6 +91,17 @@ div.editPages {
     width:75%;
     margin:0.5em auto;
     height:3em;
+}
+
+div.listPages {
+  height: 100%;
+  width: 20%;
+  background-color: #e0e0e0;
+  display: inline-block;
+}
+
+div.wraper {
+  overflow: auto;
 }
 /********************************/
 /**

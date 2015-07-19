@@ -28,16 +28,16 @@ span {
 textarea {
   resize: none;
   background-color: #e0e0e0;
-  height: 70px;
+  height: 10vh;
 }
 
 input {
   background-color: #e0e0e0;
-  height: 30px;
+  height: 5vh;
 }
 
 button {
-  height: 30px;
+  height: 5vh;
   background-color: #888888;
 }
 
@@ -45,7 +45,7 @@ button {
   margin: 2px 0;
   display: block;
   width: 100%;
-  height: 50vh;
+  height: 70vh;
 }
 
 div.editPages {
@@ -65,15 +65,13 @@ div.editPages {
   margin: 0px;
 }
 
-.row3 {
-  width: 100%;
-  margin: 2px 0 2px 2px;
-  height: 70px;
-}
-
 .row3 textarea {
   width: 50%;
   margin: 0 -2px;
+}
+
+.row3 {
+  height: 10vh;
 }
 
 .row4 {
@@ -94,14 +92,15 @@ div.editPages {
 }
 
 div.listPages {
-  height: 100%;
+  height: 90vh;
   width: 20%;
   background-color: #e0e0e0;
   display: inline-block;
+  text-align: center;
 }
 
-div.wraper {
-  overflow: auto;
+div.listPages button {
+  width: 90%;
 }
 /********************************/
 /**

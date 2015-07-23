@@ -20,6 +20,7 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="author.js" />
+    <Content Include="createjs.js" />
     <Content Include="demo.html" />
     <Content Include="demo.js" />
     <Content Include="overview.js" />
@@ -29,11 +30,9 @@
     <Content Include="overview.html" />
     <Content Include="index.html" />
     <Content Include="reference.txt" />
+    <None Include="overview-canvas-sketch.png" />
     <Content Include="w3.css" />
     <Content Include="web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Book.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">

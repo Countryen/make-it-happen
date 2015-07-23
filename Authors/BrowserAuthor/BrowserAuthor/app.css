@@ -13,6 +13,9 @@
 /* The W3CSS -> Our main style. With normalizer subset.*/
 @import url("w3.css");
 
+/*****************************************************************************/
+/* Tag-styles for the whole page */
+/*****************************************************************************/
 body, html {
     /*height: 100%; /* Why height:100%? ->Problem: overview.html: Adds a hz scrollbar to the page! */
 }
@@ -42,6 +45,9 @@ button {
   background-color: #888888;
 }
 
+/*****************************************************************************/
+/**/
+/*****************************************************************************/
 #pageText {
   margin: 2px 0;
   display: block;
@@ -103,14 +109,14 @@ div.listPages {
 div.listPages button {
   width: 90%;
 }
-/********************************/
+/*****************************************************************************/
 /**
  * Style for fullscreen editors
     -> overview.html
     -> demo.html
     ! important: Most values must be % so that the scaling on zooming (onresize) works!
  */
-/********************************/
+/*****************************************************************************/
 .full-editor {
     margin: 0.5%;
     padding: 0.5%;

@@ -21,14 +21,6 @@
      * Author.App -> Main (general) class for the whole app. Should contain everything needed by the devs involving the environment etc.
     */
     window.Author.App = function App() {
-        // list of elements and their ids
-        this.elements = {
-            menuExitButton: { id: "menu-btn-exit" },
-            menuLoadButton: { id: "menu-btn-load" },
-            menuLoadInput: { id: "menu-input-load" },
-            menuSaveButton: { id: "menu-btn-save" }
-        };
-
         // closes the app / window
         this.exit = function () {
             window.close();

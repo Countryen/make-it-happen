@@ -17,35 +17,23 @@
     // TEST -> onclick -> Test the canvas with createjs http://createjs.com/
     window.addEventListener("load", function () {
         var testButton = document.getElementById("TEST");
-        var id = -1;
         testButton.onclick = function () {
             // Start of the Animation.
-            var canvas = document.getElementById("overview");
-            //stage = (id == -1) ? new createjs.Stage("overview") : new createjs.Stage(id + "");
+            var canvas = document.getElementById("overview-canvas");
             var stage = new createjs.Stage("overview-canvas");
-            var rect = new createjs.Shape();
-            console.log(rect);
-            rect.graphics.beginFill("red").drawRect(0, 0, 15, 15);
-            rect.x = rect.y = 50;
-            rect.addEventListener("pressup", rect_pressup);
+            //var box = new createjs.Shape();
+            //box.graphics.beginFill("red").drawCircle(0, 0, 40);
+            //stage.addChild(box);
 
-            stage.addChild(rect);
-
+            // Test
+            var oc = new OverviewCanvas(stage);
+            oc.addPage();
+            oc.addPage();
+            oc.addPage();
+            oc.draw();
             stage.update();
+          
 
-            function rect_pressup(mousePressupEvent) {
-                console.log(mousePressupEvent.currentTarget);
-                console.log(mousePressupEvent.currentTarget.x + " " + mousePressupEvent.currentTarget.y);
-                console.log(mousePressupEvent.stageX + " " + mousePressupEvent.stageY);
-                mousePressupEvent.currentTarget.x = mousePressupEvent.stageX;
-                mousePressupEvent.currentTarget.y = mousePressupEvent.stageY;
-                stage.update();
-
-            }
-            id = stage.id;
-            var p1 = new DrawnPage(null);
-            p1.addToStage(stage);
-            stage.update();
         };
     });
 
@@ -69,39 +57,91 @@
     });
 
     /*************************************************************************************/
-    /* Region: Classes and Functions for the use of the canvas -> rendering the overview */
-    /*************************************************************************************/
-
     /**
-     * Class -> A page on the canvas -> a little shape with the ID in it
-     *
-    */
-    function DrawnPage(page) {
-        this.page = page;
-        this.shape = null;
+        Region: Classes and Functions for the use of the canvas -> rendering the overview
+        Uses classes from createjs (see: http://www.createjs.com/)
 
-        // Constructor?
-        {
-            var box = new createjs.Shape();
-            box.graphics.beginFill("red").drawCircle(0, 0, 10);
-            this.shape = box;
+        Explanation:
+        A canvas/stage holds a container.
 
-            // Wow... this is so difficult with JS... TS?
-        }
+        This container holds first a grid.
+        The grid must contain out of columns and rows (starting 1x1)
+        For every StoryPage we must add one row.
+        For every DecisionPage we must multiply the cols by 3
+
+        Then we must draw the actual pages (little, coloured rects fitting to the grid)
+        -> starting in the middle-col of the top row.
+        // Question: How do we define the order of adding? Do we have to add them recursively?
         
+        Finally, we add the strokes (connections) to the canvas.
+        // Question: How do we add those?
+    */
+    /*************************************************************************************/
+    var OverviewCanvas = function (stage) {
+        this.stage = null;
+        this.container = null;
+        this.cols = 15;
+        this.rows = 9;
+        this.pages = [];
+        /* Constructor. */
+        {
+            this.stage = stage;
+            this.container = new createjs.Container();
+        }
 
-        this.addToStage = function (stage) {
-            if (!this.shape)
-                throw new Error("Could not add DrawnPage with page: " + page + " to the stage: " + stage + ". No shape defined!");
-            else
-                stage.addChild(this.shape);
+        /* STC */
+        this.addPage = function (page) {
+            this.pages.push(page);
+        };
 
+        /**
+            Draws the canvas/stage.
+            STC
+        */
+        this.draw = function () {
+            this.addGrid();
+
+            console.log(this.container);
+            this.stage.addChild(this.container);
+            this.stage.update();
 
         };
 
-    }
+        /**
+        * Adds the grid to the container.
+        * First determines the higher value (cols or rows) and then takes the higher as factor.
+        * Then calculates height/width of the squares drawn by canvasHeight / factor
+        * Finally, adds for every cell (rows*cols) a white rect with a black stroke.
+        * Countryen, 23th July 2015 @ C0 | VS-Villingen.
+        */
+        this.addGrid = function () {
+            var factor = this.cols > this.rows ? this.cols : this.rows;
+
+            var canvasHeight = this.stage.canvas.height;
+            var canvasWidth = this.stage.canvas.width;
+            var drawnPageWidth = canvasWidth / (factor);
+            var drawnPageHeight = canvasHeight / (factor);
+
+            for (var rowCount = 0; rowCount < this.rows; rowCount++)
+                for (var colCount = 0; colCount < this.cols; colCount++) {
+                    var drawnPage = new createjs.Shape();
+                    drawnPage.graphics.s("black").f("white").r(colCount * drawnPageWidth, rowCount * drawnPageHeight, drawnPageWidth, drawnPageHeight);
+                    this.container.addChild(drawnPage);
+                }
+        };
+
+        /* STC */
+        this.drawPages = function () {
+            var middleCol = (this.cols / 2) + 0.5; // 9 cols => (9/2) + 0.5 = 4,5 + 0.5 = 5
+            // place first and then other pages //
+            console.log(middleCol);
+        };
 
 
 
+
+    };
+
+    var DrawnPage = function (page) { };
 
 })();

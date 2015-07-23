@@ -14,7 +14,7 @@
 @import url("w3.css");
 
 body, html {
-    /*height: 100%; /* Why height:100%? ->Problem: overview.html: Adds a vertical scrollbar to the page! */
+    /*height: 100%; /* Why height:100%? ->Problem: overview.html: Adds a hz scrollbar to the page! */
 }
 
 body {
@@ -141,7 +141,7 @@ div.listPages button {
 }
 
 .full-editor-page-box {
-    overflow: scroll;
+    overflow-y: scroll;
 }
     .full-editor-page-box button {
         display: block;

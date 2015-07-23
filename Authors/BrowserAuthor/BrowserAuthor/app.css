@@ -12,8 +12,9 @@
 
 /* The W3CSS -> Our main style. With normalizer subset.*/
 @import url("w3.css");
+
 body, html {
-  height: 100%;
+    /*height: 100%; /* Why height:100%? ->Problem: overview.html: Adds a vertical scrollbar to the page! */
 }
 
 body {

@@ -10,14 +10,20 @@
     Countryen, 11th July 2015 @ C0 | VS-Villingen.
     + "12th July 2015"
 */
+overview = null;
 (function () {
     // Global app-class.
     var app = new Author.App();
+    
 
     // TEST -> onclick -> Test the canvas with createjs http://createjs.com/
     window.addEventListener("load", function () {
-        var testButton = document.getElementById("TEST");
-        testButton.onclick = function () {
+        var testButton1 = document.getElementById("TEST1");
+        var testButton2 = document.getElementById("TEST2");
+        var testButton3 = document.getElementById("TEST3");
+        var testButton4 = document.getElementById("TEST4");
+        var testButton5 = document.getElementById("TEST5");
+        testButton1.onclick = function () {
             // Start of the Animation.
             var canvas = document.getElementById("overview-canvas");
             var stage = new createjs.Stage("overview-canvas");
@@ -26,23 +32,19 @@
             //stage.addChild(box);
 
             // Test
-            var oc = new OverviewCanvas(stage);
-            oc.addPage(null, 0, 0);
-
-            oc.addPage(null, 1, 0);
-
-            oc.addPage(null, 2, 0);
-            oc.addPage(null, 3, 0);
-            oc.addPage(null, 3, 1);
-
-            oc.addPage(null, 2, 1);
-            oc.addPage(null, 3, 2);
-            oc.addPage(null, 3, 3);
-            oc.draw();
-            stage.update();
-            console.log(stage.children);
-          
-
+            overview = new ManualOverview(stage, 5, 10);
+        };
+        testButton2.onclick = function () {
+            overview.addRow();
+        };
+        testButton3.onclick = function () {
+            overview.addCol();
+        };
+        testButton4.onclick = function () {
+            overview.removeRow();
+        };
+        testButton5.onclick = function () {
+            overview.removeCol();
         };
     });
 
@@ -89,167 +91,108 @@
         // Question: How do we add those?
     */
     /*************************************************************************************/
-    var OverviewCanvas = function (stage) {
-        /* The stage/canvas of this overview. Set by constructor */
-        this.stage = null;
-        /* A createjs.Container inside the stage. Holds all boxes as a flat array */
-        this.container = new createjs.Container();
-        /* The columns of the grid (amount of boxes in one row). Starting at 1 */
-        this.cols = 1;
-        /* The rows of the grid (amount of boxes in one column) Starting at 1 */
-        this.rows = 1;
-        /* DrawnPage[] */
-        this.pages = [];
+    var ManualOverview = function (stage, rowCount, colCount) {
+        this.stage = null; /* createjs.Stage */
+        this.grid = null; /* Grid */
 
-        /* Constructor. */
+        /* Actual Constructor.*/
         {
             this.stage = stage;
+            this.grid = new Grid(stage, rowCount, colCount);
         }
 
-        /* STC */
-        this.addPage = function (page, col, row) {
-            var newPage = new DrawnPage(page, col, row);
-            this.pages.push(newPage);
+        this.addRow = function () {
+            this.grid.rowCount++;
+            this.grid.update();
         };
 
-        /**
-            Draws the canvas/stage.
-            STC
-        */
+        this.addCol = function () {
+            this.grid.colCount++;
+            this.grid.update();
+        };
+
+        this.removeRow = function () {
+            this.grid.rowCount--;
+            this.grid.update();
+        };
+
+        this.removeCol = function () {
+            this.grid.colCount--;
+            this.grid.update();
+        };
+
+
+
+
+    }; // End of: private class ManualOverview
+
+    var Grid = function (stage, rowCount, colCount) {
+        this.stage = null; /* createjs.stage */
+        this.rowCount = 0;
+        this.colCount = 0;
+        this.gridWidth = 0;
+        this.gridHeight = 0;
+        this.boxWidth = 0;
+        this.boxHeight = 0;
+
+        /* Actual Constructor.*/
+        {
+            this.stage = stage;
+            this.rowCount = rowCount;
+            this.colCount = colCount;
+
+            /* The grid fills the canvas of the stage completely. */
+            this.gridWidth = this.stage.canvas.width;
+            this.gridHeight = this.stage.canvas.height;
+
+            //this.update();
+        }
+
+        this.update = function () {
+            /* We want squares, so either the rowCount or the colCount is the numerator. */
+            var factor = this.colCount > this.rowCount ? this.colCount : this.rowCount;
+
+            /* We calculate the square-length of each box.*/
+            this.boxWidth = this.gridWidth / factor;
+            this.boxHeight = this.gridHeight / factor;
+
+            /* We command the grid to draw itself afterwards. */
+            this.draw();
+        };
+
         this.draw = function () {
-            this.rows = this.determineRowsNeeded();
-            this.cols = this.determineColsNeededForEveryRow();
-            
-            
-            
-            this.createGrid();
-            this.putPagesIntoGrid();
+            this.stage.clear();
+            this.stage.removeAllChildren();
+            for (var row = 0; row < this.rowCount; row++)
+                for (var col = 0; col < this.colCount; col++) {
 
-            // Creating the pages
-            {
-                 
-            }
-
-            this.stage.addChild(this.container);
-            this.stage.update();
-
-        };
-
-        /**
-        * Creates the "grid" and then puts it into the container.
-        * First determines the higher value (cols or rows) and then takes the higher as factor.
-        * Then calculates height&width of the squares drawn by canvasHeight&Width / factor
-        * Finally, adds for every cell (rows*cols) a white rect with a black stroke.
-        * Countryen, 23th July 2015 @ C0 | VS-Villingen.
-        */
-        this.createGrid = function () {
-            var factor = this.cols > this.rows ? this.cols : this.rows;
-
-            var canvasHeight = this.stage.canvas.height;
-            var canvasWidth = this.stage.canvas.width;
-            var drawnPageWidth = canvasWidth / (factor);
-            var drawnPageHeight = canvasHeight / (factor);
-
-            for (var rowCount = 0; rowCount < this.rows; rowCount++)
-                for (var colCount = 0; colCount < this.cols; colCount++) {
-                    var blankBox = this.newBox("black", "white", colCount, rowCount);
-                    this.container.addChild(blankBox);
+                    var box = new createjs.Shape();
+                    box.graphics.s("black").f("white").r(col * this.boxWidth, row * this.boxHeight, this.boxWidth, this.boxHeight);
+                    box.addEventListener("click", this.box_clicked);
+                    this.stage.addChild(box);
+                    console.log(box);
                 }
-        };
-
-        this.newBox = function (s, f, x, y) {
-            var factor = this.cols > this.rows ? this.cols : this.rows;
-
-            var canvasHeight = this.stage.canvas.height;
-            var canvasWidth = this.stage.canvas.width;
-            var drawnPageWidth = canvasWidth / (factor);
-            var drawnPageHeight = canvasHeight / (factor);
-
-            var box = new createjs.Shape();
-            box.graphics.s(s).f(f).r(x * drawnPageWidth, y * drawnPageHeight, drawnPageWidth, drawnPageHeight);
-            return box;
-        };
-
-
-        /**
-        * Determines the needed amount of columns for the grid.
-        * It finds the most amount of pages in one row, adds the space between the pages and returns that number.
-        */
-        this.determineColsNeededForEveryRow = function () {
-            var returnColsNeeded = null;
-
-            var pagesAmountInOneRow = 0;
-            var maxPagesInAllRows = 0;
-            var maxPagesInOneRow = 0;
-            /* We check each row for a highest amount of pages in a single row -> because thats what we need to have our grid-cols-width */
-            for (var rowCount = 0; rowCount < this.rows; rowCount++) {
-                /* Reset of the count is mandatory! */
-                pagesAmountInOneRow = 0;
-                /* First find all pages in this row */
-                for (var key in this.pages)
-                    if (this.pages[key].row === rowCount) pagesAmountInOneRow++;
-
-                /* Then, if there were more pages in this row then in all before -> reset maxPagesInAllRows to current maxPagesInOneRow */
-                maxPagesInOneRow = pagesAmountInOneRow;
-                maxPagesInAllRows = (maxPagesInOneRow > maxPagesInAllRows) ? maxPagesInOneRow : maxPagesInAllRows;
-            }
-
-            /* Because we want every page seperated by a blank box ( [PAGE] [BLANK] [PAGE] ) we add the number-1 */
-            returnColsNeeded = maxPagesInAllRows + (maxPagesInAllRows - 1);
-
-            return returnColsNeeded;
-        }; // End of: this.determineColsNeededForEveryRow
-
-        /**
-        * Determines the needed amount of rows for the grid.
-        * It just takes the highest number of any page.row
-        * -> Also adds +1 because of the starting index 0!
-        */
-        this.determineRowsNeeded = function () {
-            var returnRowsNeeded = null;
-
-            var yetFoundHighestRow = 0;
-
-            /* We check every page */
-            for (var key in this.pages)
-            {
-                var page = this.pages[key];
-                var pageRow = page.row;
-
-                /* If the row of the page is a higher one then ever before -> this is the needed amount of rows!*/
-                yetFoundHighestRow = (pageRow > yetFoundHighestRow) ? pageRow : yetFoundHighestRow;
-            }
-
-            /* Because we have an 0-starting index -> we need to add 1*/
-            returnRowsNeeded = yetFoundHighestRow + 1;
-
-            return returnRowsNeeded;
-        }; // End of: this.determineRowsNeeded
-
-        this.putPagesIntoGrid = function () {
-            for (var key in this.pages) {
-                var page = this.pages[key];
-                var pageRow = page.row;
-                var pageCol = page.col;
-
-                var pageGridPos = (pageRow * this.cols) + pageCol;
-
-                var pageBox = this.newBox("pink", "red", pageCol, pageRow);
-
-                this.container.children[pageGridPos] = pageBox;
-            }
+            this.stage.update();
         }
-        
+
+        this.box_clicked = function (e) {
+            console.log(e);
+            console.log(e.currentTarget.graphics.command);
+            var box = new createjs.Shape();
+            box.graphics.s("black").f("red").r(e.currentTarget.graphics.command.x, e.currentTarget.graphics.command.y, e.currentTarget.graphics.command.w, e.currentTarget.graphics.command.h);
+            box.addEventListener("click", this.box_clicked);
+            console.log(box);
+            overview.stage.addChild(box);
+            overview.stage.update();
+        }
+
+    }; // End of: private class Grid
+
+    var Box = function () {
+
+    }; 
 
 
-        //var middleCol = (this.cols / 2) + 0.5; // 9 cols => (9/2) + 0.5 = 4,5 + 0.5 = 5
 
-    }; // End of: var OverviewCanvas
-
-    var DrawnPage = function (page, row, col) {
-        this.page = page;
-        this.col = col;
-        this.row = row;
-    };
 
 })();

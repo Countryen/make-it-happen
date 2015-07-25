@@ -73,7 +73,6 @@
         Explanation:
         A canvas/stage holds a container.
 
-
         This container will become a grid with pages and blanks in between them.
         The grid must contain out of columns and rows (starting 1x1)
 
@@ -124,6 +123,7 @@
             
             
             this.createGrid();
+            this.putPagesIntoGrid();
 
             // Creating the pages
             {
@@ -152,11 +152,12 @@
 
             for (var rowCount = 0; rowCount < this.rows; rowCount++)
                 for (var colCount = 0; colCount < this.cols; colCount++) {
-                    this.createBox("black", "white", colCount, rowCount);
+                    var blankBox = this.newBox("black", "white", colCount, rowCount);
+                    this.container.addChild(blankBox);
                 }
         };
 
-        this.createBox = function (s, f, x, y) {
+        this.newBox = function (s, f, x, y) {
             var factor = this.cols > this.rows ? this.cols : this.rows;
 
             var canvasHeight = this.stage.canvas.height;
@@ -166,7 +167,7 @@
 
             var box = new createjs.Shape();
             box.graphics.s(s).f(f).r(x * drawnPageWidth, y * drawnPageHeight, drawnPageWidth, drawnPageHeight);
-            this.container.addChild(box);
+            return box;
         };
 
 
@@ -224,6 +225,21 @@
 
             return returnRowsNeeded;
         }; // End of: this.determineRowsNeeded
+
+        this.putPagesIntoGrid = function () {
+            for (var key in this.pages) {
+                var page = this.pages[key];
+                var pageRow = page.row;
+                var pageCol = page.col;
+
+                var pageGridPos = (pageRow * this.cols) + pageCol;
+
+                var pageBox = this.newBox("pink", "red", pageCol, pageRow);
+
+                this.container.children[pageGridPos] = pageBox;
+            }
+        }
+        
 
 
         //var middleCol = (this.cols / 2) + 0.5; // 9 cols => (9/2) + 0.5 = 4,5 + 0.5 = 5

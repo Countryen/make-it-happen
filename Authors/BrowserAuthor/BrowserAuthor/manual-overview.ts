@@ -14,6 +14,7 @@
  * This defines the toplevel structure (and all we need) of the createjs framework.
  * See: http://www.createjs.com/
  * Now, our module/classes know the external classes used.
+ * Important: This is no official d.ts and only accurate as needed.
  * 
  * See: http://www.typescriptlang.org/Handbook#modules
  * Countryen, 26. July 2015 @ C0 | VS-Villingen, Germany.
@@ -23,17 +24,17 @@ declare module createjs {
     /** createjs.Stage */
     class Stage {
         enableMouseOver(interval: number): void;
-        canvas: any;
+        canvas: HTMLCanvasElement;
         clear(): void;
         removeAllChildren(): void;
-        addChild(child: createjs.Shape): void;
+        addChild(child: Shape): void;
         update(): void;
     } // End of: class Stage
 
     /** createjs.Shape */
     class Shape {
         graphics: any;
-        addEventListener(name: string, delegate: Function);
+        addEventListener(name: string, target: Function);
 
     } // End of: class Shape
 } // End of: declare module createjs

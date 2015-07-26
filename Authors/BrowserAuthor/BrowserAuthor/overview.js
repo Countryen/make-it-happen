@@ -10,41 +10,42 @@
     Countryen, 11th July 2015 @ C0 | VS-Villingen.
     + "12th July 2015"
 */
-overview = null;
+
 (function () {
     // Global app-class.
-    var app = new Author.App();
-    
+    var _app = new Author.App();
+    // Global Overview-Instance. Of type ManualOverview
+    var _overview = null;
 
     // TEST -> onclick -> Test the canvas with createjs http://createjs.com/
     window.addEventListener("load", function () {
+        // Button1 Starts the Test -> Initializes the ManualOverview.
         var testButton1 = document.getElementById("TEST1");
-        var testButton2 = document.getElementById("TEST2");
-        var testButton3 = document.getElementById("TEST3");
-        var testButton4 = document.getElementById("TEST4");
-        var testButton5 = document.getElementById("TEST5");
         testButton1.onclick = function () {
             // Start of the Animation.
             var canvas = document.getElementById("overview-canvas");
             var stage = new createjs.Stage("overview-canvas");
-            //var box = new createjs.Shape();
-            //box.graphics.beginFill("red").drawCircle(0, 0, 40);
-            //stage.addChild(box);
 
-            // Test
-            overview = new ManualOverview(stage, 5, 10);
+            _overview = new ManualOverview(stage, 5, 10);
         };
+
+        var testButton2 = document.getElementById("TEST2");
+        var testButton3 = document.getElementById("TEST3");
+        var testButton4 = document.getElementById("TEST4");
+        var testButton5 = document.getElementById("TEST5");
+        var testButton6 = document.getElementById("TEST6");
+
         testButton2.onclick = function () {
-            overview.addRow();
+            _overview.addRow();
         };
         testButton3.onclick = function () {
-            overview.addCol();
+            _overview.addCol();
         };
         testButton4.onclick = function () {
-            overview.removeRow();
+            _overview.removeRow();
         };
         testButton5.onclick = function () {
-            overview.removeCol();
+            _overview.removeCol();
         };
     });
 
@@ -138,6 +139,8 @@ overview = null;
         /* Actual Constructor.*/
         {
             this.stage = stage;
+            this.stage.enableMouseOver(5);
+
             this.rowCount = rowCount;
             this.colCount = colCount;
 
@@ -163,32 +166,88 @@ overview = null;
         this.draw = function () {
             this.stage.clear();
             this.stage.removeAllChildren();
+
             for (var row = 0; row < this.rowCount; row++)
                 for (var col = 0; col < this.colCount; col++) {
 
-                    var box = new createjs.Shape();
-                    box.graphics.s("black").f("white").r(col * this.boxWidth, row * this.boxHeight, this.boxWidth, this.boxHeight);
-                    box.addEventListener("click", this.box_clicked);
+                    var box = new BlankBox(col * this.boxWidth, row * this.boxHeight, this.boxWidth, this.boxHeight).getShape();
                     this.stage.addChild(box);
                     console.log(box);
                 }
             this.stage.update();
         }
 
-        this.box_clicked = function (e) {
-            console.log(e);
-            console.log(e.currentTarget.graphics.command);
-            var box = new createjs.Shape();
-            box.graphics.s("black").f("red").r(e.currentTarget.graphics.command.x, e.currentTarget.graphics.command.y, e.currentTarget.graphics.command.w, e.currentTarget.graphics.command.h);
-            box.addEventListener("click", this.box_clicked);
-            console.log(box);
-            overview.stage.addChild(box);
-            overview.stage.update();
-        }
-
     }; // End of: private class Grid
 
-    var Box = function () {
+    var BlankBox = function (x, y, w, h) {
+        this.xPos = 0;
+        this.yPos = 0;
+        this.width = 0;
+        this.height = 0;
+
+        this.STROKE_COLOR = "#000";
+        this.STROKE_STYLE = 1;
+        this.FILL_COLOR = "#FFF";
+        this.FILL_ROLLOVER_COLOR = "#EEE";
+
+        {
+            this.xPos = x;
+            this.yPos = y;
+            this.width = w;
+            this.height = h;
+        };
+
+        this.getShape = function () {
+            var box = new createjs.Shape();
+            box.graphics
+                .ss(this.STROKE_STYLE)
+                .s(this.STROKE_COLOR)
+                .f(this.FILL_COLOR)
+                .r(this.xPos, this.yPos, this.width, this.height);
+            box.addEventListener("click", this.box_click);
+            box.addEventListener("dblclick", this.box_dblclick);
+            box.addEventListener("rollover", this.box_rollover);
+            box.addEventListener("rollout", this.box_rollout);
+            return box;
+        };
+
+        this.box_click = function (e) {
+            console.log(e);
+            var box = e.target;
+            var stage = box.parent;
+            box.graphics._fill.style = "black";
+            stage.update();
+        };
+
+        this.box_dblclick = function (e) {
+            console.log(e);
+            var box = e.target;
+            var stage = box.parent;
+            box.graphics._fill.style = "red";
+            stage.update();
+        };
+
+        this.box_rollover = function (e) {
+            console.log(e);
+            var box = e.target;
+            var boxDimensions = box.graphics.command;
+            var stage = box.parent;
+            box.graphics
+                .f(new BlankBox().FILL_ROLLOVER_COLOR)
+                .r(boxDimensions.x, boxDimensions.y, boxDimensions.w, boxDimensions.h);
+            stage.update();
+        };
+
+        this.box_rollout = function (e) {
+            console.log(e);
+            var box = e.target;
+            var boxDimensions = box.graphics.command;
+            var stage = box.parent;
+            box.graphics
+                .f(new BlankBox().FILL_COLOR)
+                .r(boxDimensions.x, boxDimensions.y, boxDimensions.w, boxDimensions.h);
+            stage.update();
+        };
 
     }; 
 

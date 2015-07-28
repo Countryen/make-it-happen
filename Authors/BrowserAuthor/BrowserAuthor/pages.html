@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- 
     Project: Make It Happen (Toolset for Generation of choice-and-consequence games)
     Subproject: Author (Tool/App) - Writer (Person) uses the Author to create the game (*.book)
@@ -12,34 +12,35 @@
 -->
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>WA1 - Pages</title>
-  <link rel="stylesheet" href="app.css" type="text/css" />
-  <script src="Book.js"></script>
-  <script src="ElementsBucket.js"></script>
-  <script src="ElementInfo.js"></script>
+    <meta charset="utf-8" />
+    <title>WA1 - Pages</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no" />
 </head>
-<body style="font-size:120%">
-    <div class="editPages">
-      <div class="row1">
-        <input type="text" id="pageId" placeholder="Id of this page">
-        <button type="button" id="savePage">Save Page</button>
-        <button type="button" id="deletePage">Delete Page</button>
-      </div>
-      <textarea id="pageText" placeholder="Text of this page"></textarea>
-      <div class="row3">
-        <textarea id="option1Text" placeholder="Text of the first option"></textarea>
-        <textarea id="option2Text" placeholder="Text of the second option"></textarea>
-      </div>
-      <div class="row4">
-        <input type="text" id="target1Id" placeholder="Id of the first taget page">
-        <input type="text" id="target2Id" placeholder="Id of the second target page">
-      </div>
+<body class="w3-theme-dark">
+    <div id="pages" class="w3-theme-dark w3-xlarge">
+        <div class=" w3-theme-dark w3-half dreiviertel">
+            <div class="w3-theme">
+                <input class="w3-border-0 w3-theme-light w3-input w3-half" type="text" id="pageId" placeholder="Id of this page" />
+                <button class="w3-border-0 w3-theme-light w3-quarter" type="button" id="savePage">Save Page</button>
+                <button class="w3-border-0 w3-theme-light w3-quarter" type="button" id="deletePage">Delete Page</button>
+            </div>
+            <textarea class="riese w3-border-0 w3-theme-light w3-textarea volle-breite" id="pageText" placeholder="Text of this page"></textarea>
+            <div class="w3-theme">
+                <textarea class="zwerg w3-border-0 w3-theme-light w3-textarea w3-half" id="option1Text" placeholder="Text of the first option"></textarea>
+                <textarea class="zwerg w3-border-0 w3-theme-light w3-textarea w3-half" id="option2Text" placeholder="Text of the second option"></textarea>
+            </div>
+            <div class="row4 w3-theme">
+                <input class="w3-border-0 w3-theme-light w3-input w3-half" type="text" id="target1Id" placeholder="Id of the first taget page">
+                <input class="w3-border-0 w3-theme-light w3-input w3-half" type="text" id="target2Id" placeholder="Id of the second target page">
+            </div>
+        </div>
+        <div class="w3-theme w3-quarter" id="listPages">
+            Test
+        </div>
     </div>
-    <div class="listPages">
-    </div>
-  <!-- Starts the app! -->
+    <!-- Starts the app! -->
     <script src="author.js"></script>
-  <script src ="pages.js"></script>
+    <script src="pages.js"></script>
 </body>
 </html>

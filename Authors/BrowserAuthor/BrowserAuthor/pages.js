@@ -3,7 +3,7 @@
 */
 var page = {},
     buttonSave = document.querySelector("#savePage"),
-    pageList = document.querySelector("div.listPages");
+    pageList = document.querySelector("#listPages");
 
 buttonSave.addEventListener("click", savePage);
 

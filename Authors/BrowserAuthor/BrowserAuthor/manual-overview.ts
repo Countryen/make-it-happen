@@ -48,7 +48,7 @@ module Overview {
 
     /**
      * ManualOverview -> An Overview-Canvas. Users drag and drop / click pages manually.
-     * The Overview must save the "picture". (because manually is hard)
+     * The Overview must save the "picture". (because auto is hard)
      * Countryen, 26. July 2015 @ C0 | VS-Villingen, Germany.
     */
     export class ManualOverview {

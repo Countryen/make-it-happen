@@ -22,7 +22,6 @@ body, html {
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #424242;
 }
 
 span {
@@ -31,66 +30,12 @@ span {
 
 textarea {
   resize: none;
-  background-color: #e0e0e0;
   height: 10vh;
 }
 
-input {
-  background-color: #e0e0e0;
-  height: 5vh;
-}
-
-button {
-  height: 5vh;
-  background-color: #888888;
-}
-
 /*****************************************************************************/
-/**/
+/* Style for index.html */
 /*****************************************************************************/
-#pageText {
-  margin: 2px 0;
-  display: block;
-  width: 100%;
-  height: 70vh;
-}
-
-div.editPages {
-  width: 80%;
-  height: 100%;
-  display: inline-block;
-  float:left;
-}
-
-.row1 button {
-  width: 20%;
-  margin: 2px -4px;
-}
-
-#pageId {
-  width: 60%;
-  margin: 0px;
-}
-
-.row3 textarea {
-  width: 50%;
-  margin: 0 -2px;
-}
-
-.row3 {
-  height: 10vh;
-}
-
-.row4 {
-  width: 100%;
-  margin: 2px 0 2px 2px;
-}
-
-.row4 input {
-  width: 50%;
-  margin: 0 -2px;
-}
-
 #index button {
     display:block;
     width:75%;
@@ -98,19 +43,45 @@ div.editPages {
     height:3em;
 }
 
-div.listPages {
-  height: 90vh;
-  width: 20%;
-  background-color: #e0e0e0;
-  display: inline-block;
-  text-align: center;
+/*****************************************************************************/
+/* Style for pages.html */
+/*****************************************************************************/
+#pages input {
+    display: inline-block;
+    height: 3em;
 }
 
-div.listPages button {
-  width: 90%;
+#pages button {
+    height: 3em;
 }
+
+#pages textarea.zwerg {
+    height: 10em;
+    resize: none;
+}
+
+#pages textarea.riese {
+    height: 20em;
+    resize: none;
+}
+
+#pages .dreiviertel {
+    /* Should only be used WITH w3-half! */
+    width: 75%;
+}
+
+#pages .volle-breite {
+    width:100%;
+}
+
+#pages #listPages button {
+    display:block;
+    width:100%;
+}
+
+
 /*****************************************************************************/
-/**
+/*
  * Style for fullscreen editors
     -> overview.html
     -> demo.html

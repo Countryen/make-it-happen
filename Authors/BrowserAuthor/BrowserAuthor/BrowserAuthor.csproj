@@ -29,6 +29,7 @@
     <Content Include="pages.html" />
     <Content Include="overview.html" />
     <Content Include="index.html" />
+    <Content Include="pages.js" />
     <Content Include="reference.txt" />
     <None Include="overview-canvas-sketch.png" />
     <Content Include="w3.css" />

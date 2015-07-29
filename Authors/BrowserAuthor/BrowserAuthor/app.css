@@ -30,7 +30,6 @@ span {
 
 textarea {
   resize: none;
-  height: 10vh;
 }
 
 /*****************************************************************************/
@@ -44,15 +43,24 @@ textarea {
 }
 
 /*****************************************************************************/
+/* Style for overview.html */
+/*****************************************************************************/
+#overview canvas {
+    background-color: #ffcfcf;
+    margin:0.5%;
+    margin-right:10px;
+}
+
+/*****************************************************************************/
 /* Style for pages.html */
 /*****************************************************************************/
 #pages input {
     display: inline-block;
-    height: 3em;
+    height: 2.5em;
 }
 
 #pages button {
-    height: 3em;
+    height: 2.5em;
 }
 
 #pages textarea.zwerg {
@@ -74,10 +82,6 @@ textarea {
     width:100%;
 }
 
-#pages #listPages button {
-    display:block;
-    width:100%;
-}
 
 
 /*****************************************************************************/
@@ -96,17 +100,10 @@ textarea {
         padding: 0.5%;
     }
 
-
 .full-editor-left {
     width: 74%; /* To have a 3/4 1/4 sizing ! with w3-half|w3-quarter ! */
     overflow:scroll;
     margin-right:5px;
-}
-
-#overview-canvas {
-    background-color: #ffcfcf;
-    margin:0.5%;
-    margin-right:10px;
 }
 
 .full-editor-right {

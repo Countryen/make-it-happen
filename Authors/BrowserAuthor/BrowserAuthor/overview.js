@@ -51,19 +51,18 @@
     // Adds fullscreen support. Resizes the content to the window (+ onresize)
     // Only works when the html uses the full-editor* classes!
     window.addEventListener("load", function () {
-        var overviewContainer = document.getElementById("overview-canvas-container");
-        var pagesContainer = document.getElementById("overview-pages-container");
-        var toolbarContainer = document.getElementById("overview-toolbar-container");
+        var editorContainer = document.querySelector(".full-editor-left");
+        var toolbarContainer = document.querySelector(".full-editor-right");
+        var pagesContainer = document.querySelector(".full-editor-page-box");
         // Resizing the elements to window-size (minus margins/paddings etc.)
-        overviewContainer.style.height = (window.innerHeight - 0.04 * window.innerHeight) + "px";
-        pagesContainer.style.height = (window.innerHeight - 0.11 * window.innerHeight) + "px";
+        editorContainer.style.height = (window.innerHeight - 0.04 * window.innerHeight) + "px";
         toolbarContainer.style.height = (window.innerHeight - 0.04 * window.innerHeight) + "px";
+        pagesContainer.style.height = (window.innerHeight - 0.11 * window.innerHeight) + "px";
         // Now the same onresize of the window (when the user ZOOMS out/in)
         window.addEventListener("resize", function () {
-            overviewContainer.style.height = (window.innerHeight - 0.04 * window.innerHeight) + "px";
-            pagesContainer.style.height = (window.innerHeight - 0.11 * window.innerHeight) + "px";
+            editorContainer.style.height = (window.innerHeight - 0.04 * window.innerHeight) + "px";
             toolbarContainer.style.height = (window.innerHeight - 0.04 * window.innerHeight) + "px";
-           
+            pagesContainer.style.height = (window.innerHeight - 0.11 * window.innerHeight) + "px";
         });
     });
 

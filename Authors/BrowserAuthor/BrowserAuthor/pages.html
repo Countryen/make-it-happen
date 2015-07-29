@@ -18,8 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no" />
 </head>
 <body class="w3-theme-dark">
-    <div id="pages" class="w3-theme-dark w3-xlarge">
-        <div class=" w3-theme-dark w3-half dreiviertel">
+    <div id="pages" class="full-editor w3-container w3-border w3-theme-dark">
+        <div class="full-editor-left w3-xlarge w3-container w3-border w3-half w3-theme">
             <div class="w3-theme">
                 <input class="w3-border-0 w3-theme-light w3-input w3-half" type="text" id="pageId" placeholder="Id of this page" />
                 <button class="w3-border-0 w3-theme-light w3-quarter" type="button" id="savePage">Save Page</button>
@@ -35,8 +35,13 @@
                 <input class="w3-border-0 w3-theme-light w3-input w3-half" type="text" id="target2Id" placeholder="Id of the second target page">
             </div>
         </div>
-        <div class="w3-theme w3-quarter" id="listPages">
-            Test
+        <div class="full-editor-right w3-quarter w3-container w3-border w3-theme">
+            <div class="full-editor-menu w3-container w3-border w3-theme-light">
+                Button bar coming soon...
+            </div>
+            <div id="listPages" class="full-editor-page-box w3-container w3-border">
+                <!-- Buttons will spawn here! -->
+            </div>
         </div>
     </div>
     <!-- Starts the app! -->
